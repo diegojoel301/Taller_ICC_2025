@@ -26,6 +26,9 @@ int menu()
 void enviar_mensaje(char *msg)
 {
     read(0, msg, 1024);
+    // read(fd=0, buff=*msg, size=1024)
+    // STDIN is file descriptor 0
+    
     printf("Mensaje enviado: %s", msg);
 }
 

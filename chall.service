@@ -9,17 +9,17 @@ ExecStart=/usr/bin/socat TCP-LISTEN:5000,reuseaddr,fork EXEC:/opt/Taller_ICC_202
 Restart=always
 
 # --- Directivas de seguridad ---
-#ProtectSystem=full
-#ProtectHome=true
-#NoNewPrivileges=true
-#PrivateTmp=true
-#PrivateDevices=true
-#PrivateUsers=true
-#RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
-#MemoryDenyWriteExecute=true
-#SystemCallArchitectures=native
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+PrivateUsers=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryDenyWriteExecute=true
+SystemCallArchitectures=native
 # Permitir syscalls básicas, pero denegar execve y execveat
-#SystemCallFilter=@system-service @basic-io @file-system @network-io @process ~execve
+SystemCallFilter=@system-service @basic-io @file-system @network-io @process ~execve
 # También puedes denegar otras syscalls de ejecución de procesos si no son necesarias
 # Por ejemplo, para procesos que se supone que no deben crear nuevos subprocesos:
 # SystemCallFilter=@system-service @basic-io @file-system @network-io ~execve ~execveat ~fork ~vfork ~clone ~clone3 ~unshare ~setns ~pidfd_open ~pidfd_send_signal
